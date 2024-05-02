@@ -1,1 +1,4 @@
-# notre_cuisine_vegetal
+# notre cuisine végétale
+
+Project de Camille & Niki
+

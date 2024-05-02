@@ -1,0 +1,67 @@
+/* css reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+#root, #__next {
+  isolation: isolate;
+}
+html {
+  font-size: 100%;
+}
+/* end css reset */
+
+h1 {
+  font-size: 320%;
+  padding: 0.5em 0 0.2em 0;
+}
+
+h2 {
+  font-size: 240%;
+  padding: 0.8em 0 0.2em;
+}
+
+h3 {
+  font-size: 200%;
+}
+
+.recipe {
+  padding: 10px 60px;
+}
+
+.site-title {
+  font-size: 320%;
+  font-weight: bold;
+  padding: 20px 50px;
+  color: #86efac;
+  background-color: #fefce8;
+  border-bottom: 4px solid ;
+}
+
+footer {
+  /* font-size: 320%; */
+  font-weight: bold;
+  padding: 15px;
+  color: #86efac;
+  background-color: #fefce8;
+  border-top: 4px solid ;
+  text-align: center;
+  margin-top: 2em;
+}
