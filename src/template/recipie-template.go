@@ -55,15 +55,13 @@ func main() {
 	outputFile := "../../static/index.html"
 	output, err := os.Create(outputFile)
 	if err != nil {
-		fmt.Println("Error creating output file:", err)
-		return
+		panic(err)
 	}
 	defer output.Close()
 
 	err = tmpl.Execute(output, data)
 	if err != nil {
-		fmt.Println("Error executing template:", err)
-		return
+		panic(err)
 	}
 
 	fmt.Println("Template generated successfully!")

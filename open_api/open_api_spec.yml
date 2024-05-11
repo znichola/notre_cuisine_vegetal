@@ -1,0 +1,83 @@
+openapi: 3.0.2
+info:
+  title: Notre Cuisine Vegetal
+  version: "1.0"
+  license:
+    name: MIT
+    url: https://mit-license.org/
+servers:
+  - url: "https://api.sample.com/v1"
+paths:
+  /recette/{recetteId}:
+    get:
+      summary: Get recepie by ID
+      description: For valid IDs a recepie with be retured
+      operationId: getRecetteById
+      parameters:
+        - name: recetteId
+          in: path
+          description: ID of recipie that needs to be fetched
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Recette"
+        "400":
+          description: Invalid ID
+        "404":
+          description: Order not found
+
+components:
+  schemas:
+    Recette:
+      type: object
+      properties:
+        title:
+          type: string
+        subtitle:
+          type: string
+        sections:
+          type: array
+          items:
+            $ref: "#/components/schemas/Section"
+
+    Section:
+      type: object
+      properties:
+        title:
+          type: string
+        instructions:
+          type: array
+          items:
+            type: string
+        ingredients:
+          items:
+            type: array
+            $ref: "#/components/schemas/Ingredient"
+
+    Ingredient:
+      type: object
+      properties:
+        qt:
+          type: number
+        unit:
+          type: string
+        ingredient:
+          type: string
+
+  securitySchemes:
+    api_keys:
+      description: |
+        Generate your secret API key in the app settings.
+      name: secret-key
+      type: apiKey
+      in: header
+
+security:
+  - api_keys: []
