@@ -30,7 +30,7 @@
       "required": [
         "title",
         "subtitle",
-        "ingredients"
+        "sections"
       ],
       "type": "object"
     },
