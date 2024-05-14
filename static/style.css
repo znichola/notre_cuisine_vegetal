@@ -46,6 +46,10 @@ h3 {
   padding: 10px 60px;
 }
 
+.buffer {
+  margin-bottom: 1em;
+}
+
 a {
   color: #86efac;
   text-decoration: initial;

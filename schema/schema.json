@@ -5,9 +5,6 @@
     "Recipie": {
       "additionalProperties": false,
       "properties": {
-        "cookingTime": {
-          "type": "string"
-        },
         "title": {
           "type": "string"
         },
@@ -15,6 +12,9 @@
           "type": "string"
         },
         "prepTime": {
+          "type": "string"
+        },
+        "cookingTime": {
           "type": "string"
         },
         "servs": {

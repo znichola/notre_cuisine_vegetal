@@ -1,11 +1,16 @@
 package models
 
 type Recipie struct {
+	Title       string     `json:"title"`
+	SubTitle    string     `json:"subtitle"`
+	PrepTime    *string    `json:"prepTime,omitempty"`
+	CookingTime *string    `json:"cookingTime,omitempty"`
+	Servs       *string    `json:"servs,omitempty"`
+	Sections    []Sections `json:"sections"`
+}
+
+type Sections struct {
 	Title        string   `json:"title"`
-	Intro        string   `json:"intro"`
-	PrepTime     *string  `json:"prepTime,omitempty"`
-	CookingTime  *string  `json:"cookingTime,omitempty"`
-	Servs        *string  `json:"servs,omitempty"`
 	Ingredients  []string `json:"ingredients"`
 	Instructions []string `json:"instructions"`
 }

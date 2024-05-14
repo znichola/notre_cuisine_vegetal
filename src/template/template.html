@@ -15,15 +15,17 @@
   <main>
     <section class="recipe">
       <h1>{{.Title}}</h2>
-      <p class="description">{{.Intro}}</p>
-      <h2>Ingredients</h3>
-      <ul>{{range .Ingredients}}
-        <li>{{.}}</li>{{end}}	
-      </ul>
-      <h2>Instructions</h2>
-      <ol>{{range .Instructions}}
-        <li>{{.}}</li>{{end}}
-      </ol>
+        <p class="description">{{.SubTitle}}</p>
+        <h2>Ingredients</h3>{{range .Sections}}
+          <h3>{{.Title}}</h3>
+          <ul class="buffer">{{range .Ingredients}}
+            <li>{{.}}</li>{{end}}
+          </ul>{{end}}
+          <h2>Instructions</h2>{{range .Sections}}
+          <h3>{{.Title}}</h3>
+          <ol class="buffer">{{range .Instructions}}
+            <li>{{.}}</li>{{end}}
+          </ol>{{end}}
     </section>
   </main>
   <footer>
