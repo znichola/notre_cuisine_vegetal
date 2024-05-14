@@ -42,7 +42,7 @@
         },
         "ingredients": {
           "items": {
-            "$ref": "#/definitions/Ingredient"
+            "type": "string"
           },
           "type": "array"
         },

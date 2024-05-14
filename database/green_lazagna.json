@@ -1,16 +1,54 @@
 {
-    "title": "Lazagne verte",
-    "subtitle": "Une variation sur le classique, super vibrante et parfumée. Un véritable arrêt sur image.",
-    "sections": [
-        {
-            "title": "The filling",
-            "ingredients": [
-                {
-                    "qt": 1,
-                    "unit": "",
-                    "name": ""
-                }
-            ]
-        }
-    ]
+  "title": "Lazagne verte",
+  "subtitle": "Une variation sur le classique, super vibrante et parfumée. Un véritable arrêt sur image.",
+  "sections": [
+    {
+      "title": "Creamy béchamel sauce",
+      "ingredients": [
+        "50g Vegan butter",
+        "50g Flour",
+        "300ml Soy milk",
+        "1/2tsp Nutmeg",
+        "1/2 cup nutritional yeast"
+      ],
+      "instructions": [
+        "Now for the green sauce, melt some vegan butter and add kale, spinach, handful of basil & parsley along with some onion and garlic powder in some veg stock",
+        "Add to a blender & blitz with peas, garlic, walnuts and of course Nooch",
+        "Next our creamy béchamel sauce. Heat in a large pan equal parts vegan butter and flour to form a roux then add soy milk until desired consistency with some Nooch and 1/2 tsp nutmeg"
+      ]
+    },
+    {
+      "title": "Delisious filling and assembly",
+      "ingredients": [
+        "1 pack Vegan sausages",
+        "1 Onion",
+        "2 cloves Garlic",
+        "1 tsp Fennel seeds",
+        "1 tsp Chilli flakes",
+        "Salt and pepper to taste",
+        "1 knob Vegan butter",
+        "200g Kale",
+        "200g Spinach",
+        "1 handful Basil",
+        "1 handful Parsley",
+        "1 tsp Onion powder",
+        "1 tsp Garlic powder",
+        "150ml Veg stock",
+        "1 clove Garlic",
+        "1 cup Peas",
+        "1/4 cup Walnuts",
+        "1/4 cup Nutritional yeast",
+        "Lasagne sheets",
+        "Nutritional yeast to sprinkle on top"
+      ],
+      "instructions": [
+        "Start by taking a packet of vegan sausages out of their casings.",
+        "Fry them off with 1 large white onion, 2 garlic cloves, 1 tsp fennel seeds, and 1 tsp chilli flakes until golden and crispy.",
+        "Now for the green sauce, melt some vegan butter and add kale, spinach, a handful of basil, and parsley along with some onion and garlic powder in some veg stock.",
+        "Add to a blender and blitz with peas, garlic, walnuts, and nutritional yeast.",
+        "Next, prepare the creamy béchamel sauce. Heat in a large pan equal parts vegan butter and flour to form a roux, then add soy milk until desired consistency with some nutritional yeast and 1/2 tsp nutmeg.",
+        "Then it’s time to layer it up. Whatever way you want, just make sure to top with béchamel, some nutritional yeast, and whack in the oven at 200°C for about 40-50 minutes."
+      ]
+    }
+  ]
 }
