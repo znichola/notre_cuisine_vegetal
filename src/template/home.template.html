@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>notre cuisine végétale</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -14,13 +14,10 @@
   <main>
     <section class="recipe">
       <h1>Nose recette incroyable</h2>
-        <ul>
+        <ul>{{range .}}
           <li>
-            <a href="/green_lazagna">Lazagne verte</a>
-          </li>
-          <li>
-            <a href="/polenta_cremeuse">Polenta crémeuse</a>
-          </li>
+            <a href="{{.}}">{{.}}</a>
+          </li>{{end}}
         </ul>
     </section>
   </main>

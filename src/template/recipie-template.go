@@ -5,18 +5,31 @@ import (
 	"fmt"
 	"html/template"
 	"os"
+	"path/filepath"
+	"strings"
 
 	"recipie-template.go/models"
 )
 
 func main() {
-	data := extratRecipie("../../database/green_lazagna.json")
+	recipies := listRecipies("../../database/")
 
-	executeTemplate("recipie.template.html", "../../static/recipie/index.html", data)
+	executeTemplate("home.template.html", "../../static/index.html", recipies)
+
+	for _, r := range recipies {
+		data := extratRecipie("../../database/" + r + ".json")
+		executeTemplate("recipie.template.html", "../../static/"+r+"/index.html", data)
+	}
 }
 
 func executeTemplate(templateFile string, outputFile string, data any) {
 	tmpl, err := template.ParseFiles(templateFile)
+	if err != nil {
+		panic(err)
+	}
+
+	outputDir := filepath.Dir(outputFile)
+	err = os.MkdirAll(outputDir, os.ModePerm)
 	if err != nil {
 		panic(err)
 	}
@@ -48,4 +61,26 @@ func extratRecipie(file string) models.Recipie {
 	}
 
 	return payload
+}
+
+func listRecipies(directory string) []string {
+	dir, err := os.Open(directory)
+	if err != nil {
+		panic(fmt.Errorf("failed to open recipie directory: %w", err))
+	}
+	defer dir.Close()
+
+	files, err := dir.Readdir(-1)
+	if err != nil {
+		panic(fmt.Errorf("failed to read recipie directory contents: %w", err))
+	}
+
+	var fileNames []string
+	for _, file := range files {
+		if !file.IsDir() && strings.HasSuffix(file.Name(), ".json") {
+			name := strings.TrimSuffix(file.Name(), ".json")
+			fileNames = append(fileNames, name)
+		}
+	}
+	return fileNames
 }
