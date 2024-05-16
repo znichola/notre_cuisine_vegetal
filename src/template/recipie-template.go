@@ -17,8 +17,8 @@ func main() {
 	executeTemplate("home.template.html", "../../static/index.html", recipies)
 
 	for _, r := range recipies {
-		data := extratRecipie("../../database/" + r + ".json")
-		executeTemplate("recipie.template.html", "../../static/"+r+"/index.html", data)
+		data := extratRecipie("../../database/" + r.Url + ".json")
+		executeTemplate("recipie.template.html", "../../static/"+r.Url+"/index.html", data)
 	}
 }
 
@@ -63,7 +63,10 @@ func extratRecipie(file string) models.Recipie {
 	return payload
 }
 
-func listRecipies(directory string) []string {
+func listRecipies(directory string) []struct {
+	Url   string
+	Title string
+} {
 	dir, err := os.Open(directory)
 	if err != nil {
 		panic(fmt.Errorf("failed to open recipie directory: %w", err))
@@ -75,12 +78,25 @@ func listRecipies(directory string) []string {
 		panic(fmt.Errorf("failed to read recipie directory contents: %w", err))
 	}
 
-	var fileNames []string
+	var recipes []struct {
+		Url   string
+		Title string
+	}
 	for _, file := range files {
 		if !file.IsDir() && strings.HasSuffix(file.Name(), ".json") {
-			name := strings.TrimSuffix(file.Name(), ".json")
-			fileNames = append(fileNames, name)
+			url := strings.TrimSuffix(file.Name(), ".json")
+			filePath := filepath.Join(directory, file.Name())
+
+			data := extratRecipie(filePath)
+
+			recipes = append(recipes, struct {
+				Url   string
+				Title string
+			}{
+				Url:   url,
+				Title: data.Title,
+			})
 		}
 	}
-	return fileNames
+	return recipes
 }

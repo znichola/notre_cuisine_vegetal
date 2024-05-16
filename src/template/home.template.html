@@ -13,10 +13,10 @@
   </header>
   <main>
     <section class="recipe">
-      <h1>Nose recette incroyable</h2>
+      <h3>Nose recette incroyable</h3>
         <ul>{{range .}}
           <li>
-            <a href="{{.}}">{{.}}</a>
+            <h4><a href="{{.Url}}">{{.Title}}</a></h4>
           </li>{{end}}
         </ul>
     </section>
