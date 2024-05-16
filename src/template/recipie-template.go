@@ -10,12 +10,17 @@ import (
 )
 
 func main() {
-
-	tmpl := template.Must(template.ParseFiles("template.html"))
-
 	data := extratRecipie("../../database/green_lazagna.json")
 
-	outputFile := "../../static/index.html"
+	executeTemplate("recipie.template.html", "../../static/recipie/index.html", data)
+}
+
+func executeTemplate(templateFile string, outputFile string, data any) {
+	tmpl, err := template.ParseFiles(templateFile)
+	if err != nil {
+		panic(err)
+	}
+
 	output, err := os.Create(outputFile)
 	if err != nil {
 		panic(err)
@@ -27,7 +32,7 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println("Template generated successfully!")
+	fmt.Println(templateFile, "generated successfully!")
 }
 
 func extratRecipie(file string) models.Recipie {
