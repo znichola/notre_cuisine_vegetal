@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"html/template"
+	"io"
 	"os"
 	"path/filepath"
 	"strings"
@@ -14,12 +15,13 @@ import (
 func main() {
 	recipies := listRecipies("../../database/")
 
-	executeTemplate("home.template.html", "../../static/index.html", recipies)
+	executeTemplate("home.template.html", "../../build/index.html", recipies)
 
 	for _, r := range recipies {
 		data := extratRecipie("../../database/" + r.Url + ".json")
-		executeTemplate("recipie.template.html", "../../static/"+r.Url+"/index.html", data)
+		executeTemplate("recipie.template.html", "../../build/"+r.Url+"/index.html", data)
 	}
+	copyFile("../../static/style.css", "../../build/style.css")
 }
 
 func executeTemplate(templateFile string, outputFile string, data any) {
@@ -99,4 +101,19 @@ func listRecipies(directory string) []struct {
 		}
 	}
 	return recipes
+}
+
+func copyFile(src string, dist string) {
+
+	srcFile, err := os.Open(src)
+	if err != nil {
+		panic(err)
+	}
+
+	distFile, err := os.Create(dist)
+	if err != nil {
+		panic(err)
+	}
+
+	io.Copy(distFile, srcFile)
 }
