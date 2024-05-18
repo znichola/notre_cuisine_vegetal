@@ -6,7 +6,7 @@
 #   - run: go run hello.go
 
 name: Build site
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: ${{ github.actor }} running the website build 🚀
 on: [push]
 jobs:
   Explore-GitHub-Actions:
@@ -20,7 +20,7 @@ jobs:
         with :
           go-version: '1.22.2'
       - name : Build website
-        working-directory: /src/template
+        working-directory: ./src/template
         run : go run recipie-template.go
       - run : Build completed !? but where are the files
   
