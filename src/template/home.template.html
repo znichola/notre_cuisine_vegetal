@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>notre cuisine végétale</title>
-  <link rel="stylesheet" href="/style.css">
-  <base href="https://znichola.github.io/notre_cuisine_vegetal" />
+  <base href="https://znichola.github.io/notre_cuisine_vegetal/" />
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
       <h3>Nos recettes Incroyables</h3>
         <ul>{{range .}}
           <li>
-            <h4><a href="/{{.Url}}">{{.Title}}</a></h4>
+            <h4><a href="./{{.Url}}">{{.Title}}</a></h4>
           </li>{{end}}
         </ul>
     </section>
