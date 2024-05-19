@@ -15,13 +15,13 @@ import (
 func main() {
 	recipies := listRecipies("../../database/")
 
-	executeTemplate("home.template.html", "../../build/index.html", recipies)
+	executeTemplate("home.template.html", "../../_site/index.html", recipies)
 
 	for _, r := range recipies {
 		data := extratRecipie("../../database/" + r.Url + ".json")
-		executeTemplate("recipie.template.html", "../../build/"+r.Url+"/index.html", data)
+		executeTemplate("recipie.template.html", "../../_site/"+r.Url+"/index.html", data)
 	}
-	copyFile("../../static/style.css", "../../build/style.css")
+	copyFile("../../static/style.css", "../../_site/style.css")
 }
 
 func executeTemplate(templateFile string, outputFile string, data any) {
