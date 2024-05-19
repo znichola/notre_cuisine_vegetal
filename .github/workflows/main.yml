@@ -22,7 +22,10 @@ jobs:
       - name : Build website
         working-directory: ./src/template
         run : go run recipie-template.go
-      - run : Build completed !? but where are the files
+      - name : Build completed !? but where are the files
+        run : |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
   
       # - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       # - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
